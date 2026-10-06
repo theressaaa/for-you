@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For You</title>
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- File CSS External -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,15 +20,16 @@
         <source src="love.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- Tombol Pemutar Musik Kanan Atas -->
+    <!-- Tombol Pemutar Musik (Kanan Atas) -->
     <button id="musicBtn" class="music-btn" onclick="toggleMusic()">
         <span class="music-icon">♫</span>
         <span id="musicText">Tap to Play Music ♫</span>
     </button>
 
-    <!-- Latar Belakang Bintang -->
+    <!-- Background Bintang -->
     <div class="stars"></div>
 
+    <!-- Container utama -->
     <div class="container">
         <p class="sub-header">✧ A LITTLE SOMETHING ✧</p>
 
@@ -32,7 +37,7 @@
 
         <p class="tagline">made with love, from your love.</p>
 
-        <!-- Gambar Beruang -->
+        <!-- Gambar Beruang Mawar Tanpa Background -->
         <div class="image-wrapper">
             <div class="glow"></div>
             <img src="176455-removebg-preview.png" alt="Beruang Megang Mawar" class="bear-img">
@@ -63,7 +68,7 @@
             }
         }
 
-        // Otomatis putar audio saat ada sentuhan pertama di layar
+        // Putar lagu otomatis begitu layar disentuh/diketuk pertama kali
         document.body.addEventListener('click', function() {
             if (music.paused) {
                 music.play().then(() => {
@@ -75,3 +80,4 @@
     </script>
 </body>
 </html>
+
