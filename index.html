@@ -13,7 +13,7 @@
 
     <!-- Audio Element -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="./Ssstik.io_1791289601325.mp3" type="audio/mpeg">
+        <source src="love.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Tombol Pemutar Musik Kanan Atas -->
@@ -32,7 +32,7 @@
 
         <p class="tagline">made with love, from your love.</p>
 
-        <!-- Gambar Beruang Tanpa Background -->
+        <!-- Gambar Beruang -->
         <div class="image-wrapper">
             <div class="glow"></div>
             <img src="176455-removebg-preview.png" alt="Beruang Megang Mawar" class="bear-img">
@@ -55,7 +55,6 @@
                     musicBtn.classList.add('playing');
                 }).catch(err => {
                     console.log("Audio play error: ", err);
-                    alert("Audio tidak bisa diputar. Pastikan file 'Ssstik.io_1791289601325.mp3' sudah di-upload ke GitHub.");
                 });
             } else {
                 music.pause();
@@ -64,8 +63,8 @@
             }
         }
 
-        // Jalankan audio otomatis saat ada sentuhan pertama di layar HP
-        document.body.addEventListener('touchstart', function() {
+        // Otomatis putar audio saat ada sentuhan pertama di layar
+        document.body.addEventListener('click', function() {
             if (music.paused) {
                 music.play().then(() => {
                     musicText.textContent = 'Music Playing ♪';
@@ -76,5 +75,3 @@
     </script>
 </body>
 </html>
-
-
