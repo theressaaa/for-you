@@ -12,14 +12,14 @@
 <body>
 
     <!-- Audio Element -->
-    <audio id="bgMusic" loop>
-        <source src="Ssstik.io_1791289601325.mp3" type="audio/mp3">
+    <audio id="bgMusic" loop preload="auto">
+        <source src="Ssstik.io_1791289601325.mp3" type="audio/mpeg">
     </audio>
 
     <!-- Tombol Pemutar Musik Kanan Atas -->
-    <button id="musicBtn" class="music-btn">
+    <button id="musicBtn" class="music-btn" onclick="playAudio()">
         <span class="music-icon">♫</span>
-        <span id="musicText">Music Playing ♪</span>
+        <span id="musicText">Tap to Play Music ♫</span>
     </button>
 
     <!-- Latar Belakang Bintang -->
@@ -47,32 +47,32 @@
         const music = document.getElementById('bgMusic');
         const musicBtn = document.getElementById('musicBtn');
         const musicText = document.getElementById('musicText');
-        let isPlaying = false;
 
-        // Musik otomatis menyala saat layar disentuh pertama kali
-        document.body.addEventListener('click', function startAudio() {
-            if (!isPlaying) {
+        function playAudio() {
+            if (music.paused) {
                 music.play().then(() => {
-                    isPlaying = true;
+                    musicText.textContent = 'Music Playing ♪';
                     musicBtn.classList.add('playing');
-                }).catch(e => console.log(e));
-            }
-        }, { once: true });
-
-        // Toggle On/Off Musik
-        musicBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (isPlaying) {
+                }).catch(err => {
+                    console.log("Error play audio: ", err);
+                    alert("Audio tidak bisa diputar. Pastikan nama file audio di repository GitHub persis: Ssstik.io_1791289601325.mp3");
+                });
+            } else {
                 music.pause();
                 musicText.textContent = 'Music Paused ♫';
                 musicBtn.classList.remove('playing');
-            } else {
-                music.play();
-                musicText.textContent = 'Music Playing ♪';
-                musicBtn.classList.add('playing');
             }
-            isPlaying = !isPlaying;
-        });
+        }
+
+        // Coba putar saat layar di-klik di mana saja pertama kali
+        document.addEventListener('click', function initialPlay() {
+            if (music.paused) {
+                music.play().then(() => {
+                    musicText.textContent = 'Music Playing ♪';
+                    musicBtn.classList.add('playing');
+                }).catch(() => {});
+            }
+        }, { once: true });
     </script>
 </body>
 </html>
