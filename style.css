@@ -64,7 +64,7 @@ body {
     z-index: 1;
 }
 
-/* Container Content */
+/* Container Konten Utama */
 .container {
     position: relative;
     z-index: 2;
@@ -101,7 +101,7 @@ body {
     margin-bottom: 25px;
 }
 
-/* Wrapper Gambar Beruang Tanpa Background */
+/* Wrapper Gambar Beruang */
 .image-wrapper {
     position: relative;
     margin: 10px auto 30px auto;
@@ -169,6 +169,7 @@ body {
     color: #64748b;
     letter-spacing: 2px;
 }
+
 
 
 
