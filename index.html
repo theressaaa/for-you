@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     
-    <!-- File CSS External -->
+    <!-- File CSS Eksternal -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,7 +29,7 @@
     <!-- Background Bintang -->
     <div class="stars"></div>
 
-    <!-- Container utama -->
+    <!-- Container Utama -->
     <div class="container">
         <p class="sub-header">✧ A LITTLE SOMETHING ✧</p>
 
@@ -37,7 +37,7 @@
 
         <p class="tagline">made with love, from your love.</p>
 
-        <!-- Gambar Beruang Mawar Tanpa Background -->
+        <!-- Gambar Beruang Mawar -->
         <div class="image-wrapper">
             <div class="glow"></div>
             <img src="176455-removebg-preview.png" alt="Beruang Megang Mawar" class="bear-img">
@@ -68,7 +68,7 @@
             }
         }
 
-        // Putar lagu otomatis begitu layar disentuh/diketuk pertama kali
+        // Putar lagu otomatis saat ada sentuhan pertama di layar
         document.body.addEventListener('click', function() {
             if (music.paused) {
                 music.play().then(() => {
@@ -80,4 +80,5 @@
     </script>
 </body>
 </html>
+
 
