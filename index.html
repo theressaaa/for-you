@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Audio Element -->
+    <audio id="bgMusic" loop>
+        <source src="Ssstik.io_1791289601325.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Tombol Pemutar Musik Kanan Atas -->
+    <button id="musicBtn" class="music-btn">
+        <span class="music-icon">♫</span>
+        <span id="musicText">Music Playing ♪</span>
+    </button>
+
+    <!-- Latar Belakang Bintang -->
+    <div class="stars"></div>
+
+    <div class="container">
+        <p class="sub-header">✧ A LITTLE SOMETHING ✧</p>
+
+        <h1 class="title">for you <span class="heart">♡</span></h1>
+
+        <p class="tagline">made with love, from your love.</p>
+
+        <!-- Gambar Beruang -->
+        <div class="image-wrapper">
+            <div class="glow"></div>
+            <img src="6cbb92b41dc83ab9f0ea6872353391c1.jpg" alt="Beruang Megang Mawar" class="bear-img">
+        </div>
+
+        <a href="#" class="btn-open">open the book ♡</a>
+
+        <p class="footer-note">✧ A TINY BOOK FULL OF LOVE ✧</p>
+    </div>
+
+    <script>
+        const music = document.getElementById('bgMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        const musicText = document.getElementById('musicText');
+        let isPlaying = false;
+
+        // Musik otomatis menyala saat layar disentuh pertama kali
+        document.body.addEventListener('click', function startAudio() {
+            if (!isPlaying) {
+                music.play().then(() => {
+                    isPlaying = true;
+                    musicBtn.classList.add('playing');
+                }).catch(e => console.log(e));
+            }
+        }, { once: true });
+
+        // Toggle On/Off Musik
+        musicBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (isPlaying) {
+                music.pause();
+                musicText.textContent = 'Music Paused ♫';
+                musicBtn.classList.remove('playing');
+            } else {
+                music.play();
+                musicText.textContent = 'Music Playing ♪';
+                musicBtn.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+</body>
+</html>
 
